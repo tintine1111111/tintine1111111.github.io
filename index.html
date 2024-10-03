@@ -1,12 +1,14 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Trabahanap Login</title>
-    <link rel="stylesheet" href="styles.css">
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>index</title>
+    <link href="styles.css" rel="stylesheet"/>
 </head>
 <body>
+<a name="1_"></a>
+
     <div class="container"> 
         <h1>Welcome to Trabahanap</h1>
         
@@ -14,40 +16,166 @@
             <h2>Login</h2>
             <div class="form-group">
                 <label for="username">Username:</label>
-                <input type="text" id="loginUsername" name="username" required>
+                <input id="loginUsername" name="username" required="required" type="text"/>
             </div>
             <div class="form-group">
                 <label for="password">Password:</label>
-                <input type="password" id="loginPassword" name="password" required>
+                <input id="loginPassword" name="password" required="required" type="password"/>
             </div>
             <button type="submit">Login</button>
         </form>
 
         <div id="message"></div>
 
-        <p>Don't have an account? <a href="create-account.html">Create Account</a></p>
+        <p>Don&apos;t have an account? <a href="create-account.html">Create Account</a></p>
     </div>
 
     <script>
         const usersDb = {
-            "tine": "tine2",
-            "user2": "mypassword"
+            &quot;tine&quot;: &quot;tine2&quot;,
+            &quot;user2&quot;: &quot;mypassword&quot;
         };
 
-        document.getElementById('loginForm').addEventListener('submit', function(e) {
+        document.getElementById(&apos;loginForm&apos;).addEventListener(&apos;submit&apos;, function(e) {
             e.preventDefault();
-            const username = document.getElementById('loginUsername').value;
-            const password = document.getElementById('loginPassword').value;
+            const username = document.getElementById(&apos;loginUsername&apos;).value;
+            const password = document.getElementById(&apos;loginPassword&apos;).value;
 
-            if (usersDb[username] && usersDb[username] === password) {
-                document.getElementById('message').innerText = "Login successful! Redirecting...";
-                setTimeout(() => {
-                    window.location.href = 'main.html';
+            if (usersDb[username] &amp;&amp; usersDb[username] === password) {
+                document.getElementById(&apos;message&apos;).innerText = &quot;Login successful! Redirecting...&quot;;
+                setTimeout(() =&gt; {
+                    window.location.href = &apos;main.html&apos;;
                 }, 2000);
             } else {
-                document.getElementById('message').innerText = "Invalid username or password. Please try again.";
+                document.getElementById(&apos;message&apos;).innerText = &quot;Invalid username or password. Please try again.&quot;;
             }
         });
     </script>
+
+
+<hr/>
+
+
+
+
+
+<a name="2_"></a>
+
+    <div class="container">
+        <h1>Create Your Account</h1>
+        <p>Please fill in the form below to create an account.</p>
+        
+        <form id="registerForm">
+            <div class="form-group">
+                <label for="newUsername">Username:</label>
+                <input id="newUsername" name="newUsername" required="required" type="text"/>
+            </div>
+            <div class="form-group">
+                <label for="newPassword">Password:</label>
+                <input id="newPassword" name="newPassword" required="required" type="password"/>
+            </div>
+            <button type="submit">Create Account</button>
+        </form>
+
+        <div id="registerMessage"></div>
+        
+        <p>Already have an account? <a href="#1_">Log in here</a>.</p>
+    </div>
+
+    <script>
+        const usersDb = {
+            &quot;user1&quot;: &quot;password123&quot;,
+            &quot;user2&quot;: &quot;mypassword&quot;
+        };
+
+        document.getElementById(&apos;registerForm&apos;).addEventListener(&apos;submit&apos;, function(e) {
+            e.preventDefault();
+            const newUsername = document.getElementById(&apos;newUsername&apos;).value;
+            const newPassword = document.getElementById(&apos;newPassword&apos;).value;
+
+            if (usersDb[newUsername]) {
+                document.getElementById(&apos;registerMessage&apos;).innerText = &quot;Username already exists. Please choose another.&quot;;
+            } else {
+                usersDb[newUsername] = newPassword;
+                document.getElementById(&apos;registerMessage&apos;).innerText = &quot;Account created successfully! You can now log in.&quot;;
+                document.getElementById(&apos;registerForm&apos;).reset();
+            }
+        });
+    </script>
+
+
+<hr/>
+
+
+
+
+
+<a name="3_"></a>
+
+    <header>
+        <h1>Find your next job</h1>
+        <button onclick="logout()">Log Out</button>
+    </header>
+
+    <script>
+        function logout() {
+            // Clear any user session data here
+            // Redirect to login page
+            window.location.href = &apos;login.html&apos;;
+        }
+    </script>
+
+    <div class="filters">
+        <button>All</button>
+        <button>Remote</button>
+        <button>On-site</button>
+        <button>Full-time</button>
+        <button>Part-time</button>
+        <button>Contract</button>
+        <button>Internship</button>
+        <button>Temporary</button>
+    </div>
+
+    <div class="search-bar">
+        <input placeholder="Search job title or company" type="text"/>
+    </div>
+
+    <section class="job-listings">
+        <h2>Featured jobs</h2>
+
+        <div class="job-card">
+            <img alt="Job Image" src="image1.jpg"/>
+            <div class="job-info">
+                <p>Full-time • Remote OK</p>
+                <h3>Product Designer</h3>
+                <p>Loom</p>
+                <button>View job</button>
+            </div>
+        </div>
+
+        <div class="job-card">
+            <img alt="Job Image" src="image2.jpg"/>
+            <div class="job-info">
+                <p>Full-time • Remote OK</p>
+                <h3>Senior Product Designer</h3>
+                <p>Loom</p>
+                <button>View job</button>
+            </div>
+        </div>
+
+        <div class="job-card">
+            <img alt="Job Image" src="image3.jpg"/>
+            <div class="job-info">
+                <p>Full-time • Remote OK</p>
+                <h3>Product Designer</h3>
+                <p>Loom</p>
+                <button>View job</button>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <button>Load more</button>
+    </footer>
 </body>
 </html>
